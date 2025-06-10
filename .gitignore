@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+reactapp/node_modules/
+server/node_modules/
+
+# environment variables
+.env
+.env.local
+
+# logs
+logs
+*.log
+
+# build
+dist/
+build/
