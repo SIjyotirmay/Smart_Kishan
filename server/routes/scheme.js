@@ -26,4 +26,15 @@ router.get("/edit",(req,res)=>{
     res.json({msg: "I am Edit"})
 });
 */
+
+router.post("/test",(req,res)=>{
+    console.log()
+    res.json({msg:"I am Node"})
+})
+
+
+
+
+
+
 module.exports=router;
