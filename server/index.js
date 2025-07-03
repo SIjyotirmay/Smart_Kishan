@@ -1,27 +1,32 @@
-const exp = require("express");
+const exp=require("express")
 const app=exp();
 
-const cors = require("cors")
+
+const cors=require("cors")
 app.use(cors());
 
-const bodyParser= require("body-parser")
+app.use(exp.static('public'))
+
+const bodyParser=require("body-parser")
 app.use(bodyParser.urlencoded())
 app.use(bodyParser.json())
 
-const expressFileupload = require("express-fileupload")
+const expressFileupload=require("express-fileupload")
 app.use(expressFileupload());
 
-const mongoose = require("mongoose");
-//mongoose.connect("mongodb+srv://Jyotirmay7:p1234@cluster0.yrkjp9h.mongodb.net/dbkishan?retryWrites=true&w=majority&appName=Cluster0");
-mongoose.connect("mongodb+srv://Jyotirmay7:p1234@cluster0.yrkjp9h.mongodb.net/dbkishan?retryWrites=true&w=majority&appName=Cluster0");
+const mongoose=require("mongoose")
+mongoose.connect("mongodb+srv://Jyotirmay7:p1234@cluster0.yrkjp9h.mongodb.net/dbkishan?retryWrites=true&w=majority&appName=Cluster0")
 
 app.get("/",(req,res)=>{
-     res.send("Hello Saujatya");
+    res.send("Hello Mern55 Node");
 });
 
-const  sr = require("./routes/scheme");  //scheme (page) router = sr and importing or adding scheme.js
-app.use("/scheme",sr);
+const pr=require("./routes/product_r");
+app.use("/product",pr);
 
-app.listen(3000)
 
-    
+const ar=require("./routes/admin");
+app.use("/admin",ar);
+
+
+app.listen(2000)
