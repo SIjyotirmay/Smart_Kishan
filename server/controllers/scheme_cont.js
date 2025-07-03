@@ -3,10 +3,10 @@ const Productmod = require("../db/productdb");
 module.exports={
     async addproduct(req,res){
                 var insobj={
-                        pname: "Hell",
-                        pprice: 120,
-                        pdetails: "Energy drink",
-                        pimg: "hell.jpeg"  
+                        pname: "Phone",
+                        pprice: 12000,
+                        pdetails: "smart phone (iphone)",
+                        pimg: "apple.jpeg"  
                 };
         await Productmod.create(insobj);
         res.json({msg: "I am Add Controller"})

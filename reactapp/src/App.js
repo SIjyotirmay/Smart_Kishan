@@ -1,82 +1,29 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
+import { BrowserRouter,Routes,Route,Navigate } from "react-router-dom"
+import Dashboard from "./pages/Dashboard";
+import Addproduct from "./pages/Addproduct";
+import Listproduct from "./pages/Listproduct";
+import Login from "./pages/Login";
+import Editproduct from "./pages/Editproduct";
+import './App.css'
+function App(){
 
-function App()
-{
+  const PrivateRoute = ({children }) => {
+    var isAuthenticated=localStorage.getItem("aname")
+  return isAuthenticated ? children : <Navigate to="/login" />;
+};
+
   return(
     <>
     <BrowserRouter>
-    <h1>Hello </h1>
     <Routes>
-      <Route path="/" element= {<Home/>} />
-      <Route path="/about" element= {<About/>} />
+      <Route path="/" element={<PrivateRoute><Dashboard/></PrivateRoute>}/>
+      <Route path="/addproduct" element={<PrivateRoute><Addproduct/></PrivateRoute>}/>
+      <Route path="/listproduct" element={<PrivateRoute><Listproduct/></PrivateRoute>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/edit/:id" element={<PrivateRoute><Editproduct/></PrivateRoute>} /> 
     </Routes>
-    
     </BrowserRouter>
-    
     </>
   )
 }
-
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function App()
-// {
-//   return(
-//     <>
-//     <h1>Hello React</h1>
-//     </>
-//   )
-// }
-
-// export default App;
-
-
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
