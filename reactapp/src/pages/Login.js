@@ -53,17 +53,20 @@ return(
 
 export default Login;*/
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [role, setRole] = useState("admin"); // default is admin
+  const [role, setRole] = useState("user");
   const [iserr, setIserr] = useState(false);
+  const navigate = useNavigate(); // Add this
 
   const handleLogin = async () => {
     const fd = new FormData();
     fd.append("email", email);
     fd.append("pass", pass);
+    fd.append("role", role);
 
     const endpoint =
       role === "admin"
@@ -80,16 +83,15 @@ function Login() {
     if (data.msg === "Invalid login") {
       setIserr(true);
     } else {
-      // Store login info
       if (role === "admin") {
         localStorage.setItem("aname", data.name);
         localStorage.setItem("aid", data.id);
+        navigate("/dashboard"); // ✅ use this
       } else {
         localStorage.setItem("uname", data.name);
         localStorage.setItem("uid", data.id);
+        navigate("/userhome"); // ✅ use this
       }
-
-      window.location = "/";
     }
   };
 
@@ -103,7 +105,6 @@ function Login() {
             </div>
           )}
 
-          {/* Role Selector */}
           <p>Login As</p>
           <select
             className="form-control"
@@ -115,22 +116,18 @@ function Login() {
           </select>
 
           <p>Email</p>
-          <p>
-            <input
-              type="email"
-              className="form-control"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </p>
+          <input
+            type="email"
+            className="form-control"
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
           <p>Password</p>
-          <p>
-            <input
-              type="password"
-              className="form-control"
-              onChange={(e) => setPass(e.target.value)}
-            />
-          </p>
+          <input
+            type="password"
+            className="form-control"
+            onChange={(e) => setPass(e.target.value)}
+          />
 
           <p>
             <button className="btn btn-success" onClick={handleLogin}>
