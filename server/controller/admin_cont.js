@@ -3,18 +3,18 @@ const bcrypt=require("bcrypt");
 module.exports={
    async addadmin(req,res){
 
-//    const salt=await bcrypt.genSalt(10);
-//    const hp=await bcrypt.hash("1234",salt);
+  const salt=await bcrypt.genSalt(10);
+   const hp=await bcrypt.hash("1234",salt);
 
-//     var ins={
-//   name:"jack",
-//   email:"j@gmail.com",
-//   password:hp,
-//     }
+    var ins={
+  name:"jack",
+  email:"j1@gmail.com",
+  password:hp,
+    }
 
-//     await Admin.create(ins);
+    await Admin.create(ins);
 
-//       res.json({msg:"I am Admin Add"});
+      res.json({msg:"I am Admin Add"});
 
   } ,
   async login(req,res){
@@ -41,6 +41,7 @@ module.exports={
 
     }else{
         res.json({msg:"Invalid login"});
+
     }
 
 
