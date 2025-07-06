@@ -33,5 +33,8 @@ app.use("/admin",ar);
 const userRoutes = require("./routes/user");
 app.use("/user", userRoutes);
 
+app.use("/scheme", require("./routes/scheme"));
+
+
 
 app.listen(2000)

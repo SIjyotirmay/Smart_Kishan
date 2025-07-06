@@ -1,24 +1,23 @@
-const Productmod = require("../db/productdb");
+const Scheme = require("../db/schemedb");
 
-module.exports={
-    async addproduct(req,res){
-                var insobj={
-                        pname: "Phone",
-                        pprice: 12000,
-                        pdetails: "smart phone (iphone)",
-                        pimg: "apple.jpeg"  
-                };
-        await Productmod.create(insobj);
-        res.json({msg: "I am Add Controller"})
-    },
-    selproduct(req,res){
-        
-            res.json({msg: "I am Select Controller"})
-    },
-    delproduct(req,res){
-            res.json({msg: "I am Delete Controller"})
-    },
-    editproduct(req,res){
-            res.json({msg: "I am Edit Controller"})
+module.exports = {
+  async addScheme(req, res) {
+    try {
+      const { title, description } = req.body;
+      const scheme = new Scheme({ title, description });
+      await scheme.save();
+      res.json({ msg: "Scheme added" });
+    } catch (err) {
+      res.status(500).json({ msg: "Error adding scheme" });
     }
-}
+  },
+
+  async getSchemes(req, res) {
+    try {
+      const schemes = await Scheme.find().sort({ createdAt: -1 });
+      res.json(schemes);
+    } catch (err) {
+      res.status(500).json({ msg: "Error fetching schemes" });
+    }
+  },
+};
