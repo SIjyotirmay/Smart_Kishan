@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserNavbar from "../inc/UserNavbar";
+import UserNavbar from "../../inc/UserNavbar";
 
 function CropDiseaseDetection() {
   const [preview, setPreview] = useState(null);

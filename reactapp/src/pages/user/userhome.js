@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Top from "../inc/Top";
-import UserNavbar from "../inc/UserNavbar";
+import Top from "../../inc/Top";
+import UserNavbar from "../../inc/UserNavbar";
 
 function UserHome() {
   const navigate = useNavigate();

@@ -34,7 +34,19 @@ function Sidebar(){
         </div>
       </li>
 
-      
+      <li className="nav-item">
+  <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSchemes" aria-expanded="true" aria-controls="collapseSchemes">
+    <i className="fas fa-fw fa-folder" />
+    <span>Manage Schemes</span>
+  </a>
+  <div id="collapseSchemes" className="collapse" aria-labelledby="headingSchemes" data-parent="#accordionSidebar">
+    <div className="bg-white py-2 collapse-inner rounded">
+      <NavLink className="collapse-item" to="/addscheme">Add Scheme</NavLink>
+      <NavLink className="collapse-item" to="/listscheme">List Schemes</NavLink>
+    </div>
+  </div>
+  </li>
+
       {/* Divider */}
       <hr className="sidebar-divider d-none d-md-block" />
       {/* Sidebar Toggler (Sidebar) */}

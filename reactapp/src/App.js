@@ -1,13 +1,17 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import UserHome from "./pages/userhome";
-import Addproduct from "./pages/Addproduct";
-import Listproduct from "./pages/Listproduct";
+import Dashboard from "./pages/admin/Dashboard";
+import UserHome from "./pages/user/userhome";
+import Addproduct from "./pages/admin/Addproduct";
+import Addscheme from "./pages/admin/Addscheme";
+import Listproduct from "./pages/admin/Listproduct";
+import Listscheme from "./pages/admin/Listscheme";
 import Login from "./pages/Login";
-import Editproduct from "./pages/Editproduct";
+import Editproduct from "./pages/admin/Editproduct";
+import Editscheme from "./pages/admin/Editscheme";
+
 import './App.css';
-import GovtSchemes from "./pages/GovtSchemes";
-import CropDiseaseDetection from "./pages/CropDiseaseDetection";
+import GovtSchemes from "./pages/user/GovtSchemes";
+import CropDiseaseDetection from "./pages/user/CropDiseaseDetection";
 
 
 function App() {
@@ -33,7 +37,9 @@ function App() {
         <Route path="/addproduct" element={<PrivateRoute role="admin"><Addproduct /></PrivateRoute>} />
         <Route path="/listproduct" element={<PrivateRoute role="admin"><Listproduct /></PrivateRoute>} />
         <Route path="/edit/:id" element={<PrivateRoute role="admin"><Editproduct /></PrivateRoute>} />
-
+        <Route path="/addscheme" element={<PrivateRoute role="admin"><Addscheme /></PrivateRoute>} />
+        <Route path="/listscheme" element={<PrivateRoute role="admin"><Listscheme /></PrivateRoute>} />
+        <Route path="/editscheme/:id" element={<PrivateRoute role="admin"><Editscheme /></PrivateRoute>} />
         {/* User Route */}
         <Route path="/userhome" element={<PrivateRoute role="user"><UserHome /></PrivateRoute>} />
   

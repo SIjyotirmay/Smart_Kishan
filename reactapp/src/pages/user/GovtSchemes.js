@@ -21,7 +21,7 @@
 // export default GovtSchemes;
 
 import { useEffect, useState } from "react";
-import UserNavbar from "../inc/UserNavbar";
+import UserNavbar from "../../inc/UserNavbar";
 
 function SchemeList() {
   const [schemes, setSchemes] = useState([]);
@@ -41,6 +41,27 @@ function SchemeList() {
           <div className="card-body">
             <h5>{s.title}</h5>
             <p>{s.description}</p>
+            <td>
+                        {s.image ? (
+                          <img
+                            className="pimg"
+                            src={`http://localhost:2000/uploads/${s.image}`}
+                            alt="scheme"
+                            width="100"
+                          />
+                        ) : (
+                          "No image"
+                        )}
+                      </td>
+                      <td>
+                        {s.applyLink ? (
+                          <a href={s.applyLink} target="_blank" rel="noopener noreferrer">
+                            Apply Now
+                          </a>
+                        ) : (
+                          "No Link"
+                        )}
+              </td>
           </div>
         </div>
       ))}

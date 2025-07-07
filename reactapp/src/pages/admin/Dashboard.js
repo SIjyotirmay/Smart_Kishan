@@ -1,6 +1,6 @@
-import Footer from "../inc/Footer";
-import Sidebar from "../inc/Sidebar";
-import Top from "../inc/Top";
+import Footer from "../../inc/Footer";
+import Sidebar from "../../inc/Sidebar";
+import Top from "../../inc/Top";
 function Dashboard(){
     return(
         <>

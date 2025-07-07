@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Footer from "../inc/Footer";
-import Sidebar from "../inc/Sidebar";
-import Top from "../inc/Top";
+import Footer from "../../inc/Footer";
+import Sidebar from "../../inc/Sidebar";
+import Top from "../../inc/Top";
 import { useState,useEffect } from "react";
 function Listproduct(){
     let [products,setProducts]=useState([])
