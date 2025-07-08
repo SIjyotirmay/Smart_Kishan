@@ -55,6 +55,10 @@ export default Login;*/
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './login.css'
+import { FaEnvelope, FaLock } from "react-icons/fa";
+import { FaUser, FaShieldAlt,FaUserShield } from "react-icons/fa";
+
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -98,33 +102,59 @@ function Login() {
 
   return (
     <div className="container1">
-      <div className="row">
+
+        
+         
         <div className="col-md-4 frm">
+          <div className="login-header text-center">
+          <div className="logo-container">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.kQi2-h8ZaSmgd79vM2kxCgHaHa?pid=ImgDet&w=202&h=202&c=7&dpr=1.3&o=7&rm=3" alt="Logo" className="logo-img" />
+          </div>
+           <h3 className="login-title">Smart Kishan</h3>
+            <p className="login-subtitle">Your Smart Agricultural Platform</p>
+          </div>
+
+          {/* Logo image */}
+           
           {iserr && (
             <div className="alert alert-danger">
               <strong>Error!</strong> Invalid login
             </div>
           )}
 
-          <p>Login As</p>
-          <select
-            className="form-control"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          >
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-          </select>
+            <div className="role-selector">
+            <label className="label"><FaUserShield className="icon"/> Select Role</label>
+            <div className="role-options">
+              <button
+                className={`role-btn ${role === "farmer" ? "active" : ""}`}
+                onClick={() => setRole("farmer")}
+              >
+                <FaUser className="icon" />
+                Farmer
+              </button>
 
-          <p>Email</p>
+              <button
+                className={`role-btn ${role === "admin" ? "active" : ""}`}
+                onClick={() => setRole("admin")}
+              >
+                <FaShieldAlt className="icon" />
+                Admin
+              </button>
+            </div>
+          </div>
+
+          <p><FaEnvelope className="icon" /> Email</p>
+           
           <input
             type="email"
             className="form-control"
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <p>Password</p>
+          <p> <FaLock className="icon" /> Password</p>
+          
           <input
+           
             type="password"
             className="form-control"
             onChange={(e) => setPass(e.target.value)}
@@ -136,7 +166,6 @@ function Login() {
             </button>
           </p>
         </div>
-      </div>
     </div>
   );
 }

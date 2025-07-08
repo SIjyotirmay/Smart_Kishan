@@ -12,7 +12,7 @@ import Editscheme from "./pages/admin/Editscheme";
 import './App.css';
 import GovtSchemes from "./pages/user/GovtSchemes";
 import CropDiseaseDetection from "./pages/user/CropDiseaseDetection";
-
+import News from "./pages/user/News"
 
 function App() {
   const PrivateRoute = ({ children, role }) => {
@@ -42,7 +42,8 @@ function App() {
         <Route path="/editscheme/:id" element={<PrivateRoute role="admin"><Editscheme /></PrivateRoute>} />
         {/* User Route */}
         <Route path="/userhome" element={<PrivateRoute role="user"><UserHome /></PrivateRoute>} />
-  
+        <Route path="/news" element={<PrivateRoute role="user"><News /></PrivateRoute> } />
+
         <Route path="/govtschemes" element={<PrivateRoute role="user"><GovtSchemes /></PrivateRoute>} />
         <Route path="/cropdisease" element={<PrivateRoute role="user"><CropDiseaseDetection /></PrivateRoute>} />
 

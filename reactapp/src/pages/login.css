@@ -1,63 +1,46 @@
-/* .container1{ 
-    background-image: url(../../public/img/farm1.jpg);
-    background-position: center;
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-}
-/* login.css */
-
-/* Full-page background */
-/* body, html {
+html, body {
   height: 100%;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-} */ */
+   
+}
 
 .container1 {
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background-image: url('https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop');
-  background-size: cover;
-  background-position: center;
-  position: relative;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+   /* Optional */
+   background: linear-gradient(to top, #74edc4e5, #d7f3ea);
 }
 
-.container1::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* dark overlay */
-  z-index: 0;
+.select-wrapper{
+    color: rgb(9, 9, 9);
+    
 }
+ 
 
-/* Form card */
 .frm {
   position: relative;
   z-index: 1;
   background: rgba(255, 255, 255, 0.95);
   padding: 30px;
   border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   max-width: 400px;
   width: 100%;
   animation: floatUp 0.5s ease-out;
 }
 
-/* Inputs & Labels */
 .frm p {
   margin-top: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   font-weight: 600;
   color: #333;
 }
 
 .frm input.form-control,
 .frm select.form-control {
-  padding: 10px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
   transition: border 0.3s, box-shadow 0.3s;
@@ -67,12 +50,14 @@
 .frm input.form-control:focus,
 .frm select.form-control:focus {
   border-color: #10b981;
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 0 2px rgba(10, 146, 100, 0.3);
   outline: none;
 }
 
-/* Button */
 .frm button.btn-success {
+
+  margin-top: 16px;
+  
   background: linear-gradient(to right, #10b981, #059669);
   border: none;
   padding: 10px 20px;
@@ -86,14 +71,131 @@
 .frm button.btn-success:hover {
   transform: scale(1.03);
   background: linear-gradient(to right, #059669, #047857);
-}
+} 
 
-/* Error Alert */
+
 .alert {
   margin-bottom: 20px;
 }
+.custom-dropdown {
+  margin-top: 10px;
+}
+ 
+ .role-selector {
+  margin-bottom: 1rem;
+ 
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.role-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.role-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 2px solid #ccc;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.1s;
+  width: 160px;
+}
+
+.role-btn .icon {
+  font-size: 18px;
+}
+
+.role-btn.active {
+  background-color: #e6fff2;
+  border-color: #00a86b;
+  color: #006c4f;
+}
+/* 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+   
+
+}
+
+.logo-img {
+  height: 70px; /* adjust as needed 
+  object-fit: contain;
+  
+}*/
+.login-header {
+  margin-bottom: 1.5rem;
+}
+
+.logo-img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background: #e6fff2;
+  padding: 7px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeInUp 0.8s ease;
+  margin-bottom: 4px;
+}
+
+.login-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: #1a1a1a;
+}
+
+.login-subtitle {
+  font-size: 0.95rem;
+  color: #5e5e5e;
+}
 
 /* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-img {
+  animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+} 
+
+
 @keyframes floatUp {
   from {
     transform: translateY(30px);
