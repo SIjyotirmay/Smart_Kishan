@@ -54,6 +54,7 @@ return(
 export default Login;*/
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './login.css'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -96,7 +97,7 @@ function Login() {
   };
 
   return (
-    <div className="container">
+    <div className="container1">
       <div className="row">
         <div className="col-md-4 frm">
           {iserr && (

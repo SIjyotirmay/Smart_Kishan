@@ -1,0 +1,263 @@
+/* Container and Layout */
+.userhome-container {
+  min-height: 100vh;
+  background: #F0FFF4
+}
+
+.userhome-inner {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Welcome Card */
+.welcome-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.welcome-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  background-color: #d1fae5;
+  border-radius: 9999px;
+  margin-top: -4rem;
+  margin-right: -4rem;
+  opacity: 0.5;
+}
+
+/* Welcome Info */
+.welcome-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar-info img {
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 4px solid #a7f3d0;
+}
+
+.farm-photo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .farm-photo {
+    display: block;
+    width: 128px;
+    height: 96px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+}
+
+.welcome-text h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.welcome-text p {
+  color: #4b5563;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Farm Stats */
+.farm-stats {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .farm-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .farm-stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.farm-stat-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.farm-stat-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.farm-stat-card p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.farm-stat-card .stat-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-top: 0.25rem;
+}
+
+/* Quick Actions */
+.quick-actions {
+  margin-top: 2rem;
+}
+
+.quick-actions h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.actions-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .actions-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.action-button {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  color: white;
+  text-align: left;
+  transform: scale(1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.action-button h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.action-button p {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Specific Action Colors */
+.bg-blue-500 { background-color: #3b82f6; }
+.bg-blue-600:hover { background-color: #2563eb; }
+
+.bg-red-500 { background-color: #ef4444; }
+.bg-red-600:hover { background-color: #dc2626; }
+
+.bg-purple-500 { background-color: #a855f7; }
+.bg-purple-600:hover { background-color: #9333ea; }
+
+.bg-emerald-500 { background-color: #10b981; }
+.bg-emerald-600:hover { background-color: #059669; }
+
+/* Active Crops */
+.active-crops {
+  margin-top: 2rem;
+}
+
+.active-crops h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.crop-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .crop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .crop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.crop-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.crop-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.crop-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.crop-icon-box {
+  width: 3rem;
+  height: 3rem;
+  background-color: #d1fae5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.crop-info h3 {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.crop-info p {
+  font-size: 0.875rem;
+  color: #6b7280;
+}

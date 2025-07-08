@@ -33,8 +33,8 @@ function SchemeList() {
   }, []);
 
   return (
-    <div className="container">
-      <UserNavbar />
+    <div >
+       <UserNavbar />
       <h3>Available Schemes</h3>
       {schemes.map((s, idx) => (
         <div className="card mb-2" key={idx}>

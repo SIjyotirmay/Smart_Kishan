@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Top from "../../inc/Top";
 import UserNavbar from "../../inc/UserNavbar";
+import './userhome.css'
 
 function UserHome() {
   const navigate = useNavigate();
@@ -51,10 +51,10 @@ function UserHome() {
   }, []);
 
   // ---------- Logout ----------
-  const handleLogout = () => {
-    localStorage.removeItem("uname");
-    navigate("/login", { replace: true });
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("uname");
+  //   navigate("/login", { replace: true });
+  // };
 
   // ---------- Access denied screen ----------
   if (error) {
@@ -74,7 +74,7 @@ function UserHome() {
 
   // ---------- Main dashboard ----------
   return (
-    <div>
+    <div className="userhome-container">
       <UserNavbar />
       <div className="p-4">
         <h1 className="text-2xl font-bold text-red-600 mb-4">
@@ -108,3 +108,142 @@ function UserHome() {
 }
 
 export default UserHome;
+
+
+
+
+// import React from 'react';
+// import './userhome.css';
+// import {
+//   MapPin, Crop, Award, Camera, BookOpen, MessageCircle, TrendingUp, Leaf
+// } from 'lucide-react';
+
+// export const UserHome = ({ user, onNavigate }) => {
+//   const quickActions = [
+//     {
+//       id: 'schemes',
+//       title: 'Government Schemes',
+//       description: 'Explore available agricultural schemes and subsidies',
+//       icon: Award,
+//       className: 'blue'
+//     },
+//     {
+//       id: 'disease',
+//       title: 'Crop Disease Detection',
+//       description: 'AI-powered disease detection for your crops',
+//       icon: Camera,
+//       className: 'red'
+//     },
+//     {
+//       id: 'learning',
+//       title: 'Learning Center',
+//       description: 'Educational videos and farming techniques',
+//       icon: BookOpen,
+//       className: 'purple'
+//     },
+//     {
+//       id: 'ai',
+//       title: 'Ask AI Assistant',
+//       description: 'Get instant answers to your farming questions',
+//       icon: MessageCircle,
+//       className: 'green'
+//     }
+//   ];
+
+//   const farmStats = [
+//     { label: 'Total Area', value: user.farm.size, icon: MapPin },
+//     { label: 'Active Crops', value: user.farm.crops.length.toString(), icon: Crop },
+//     { label: 'Yield Score', value: '85%', icon: TrendingUp },
+//     { label: 'Sustainability', value: 'A+', icon: Leaf }
+//   ];
+
+//   return (
+//     <div className="userhome-wrapper">
+//       <div className="container">
+//         {/* Welcome Card */}
+//         <div className="welcome-card">
+//           <div className="circle-decor" />
+//           <div className="welcome-content">
+//             <div className="user-info">
+//               <img src={user.avatar} alt={user.name} className="avatar" />
+//               <div>
+//                 <h1 className="title">Welcome back, {user.name}!</h1>
+//                 <p className="subtitle">
+//                   <MapPin className="inline-icon" />
+//                   {user.farm.name} • {user.farm.location}
+//                 </p>
+//               </div>
+//             </div>
+//             <img
+//               src="https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=200&h=150&fit=crop"
+//               alt="Farm"
+//               className="farm-image"
+//             />
+//           </div>
+//         </div>
+
+//         {/* Farm Stats */}
+//         <div className="stats-grid">
+//           {farmStats.map((stat, i) => {
+//             const Icon = stat.icon;
+//             return (
+//               <div key={i} className="stat-card">
+//                 <div>
+//                   <p className="stat-label">{stat.label}</p>
+//                   <p className="stat-value">{stat.value}</p>
+//                 </div>
+//                 <Icon className="stat-icon" />
+//               </div>
+//             );
+//           })}
+//         </div>
+
+//         {/* Weather Widget */}
+//         <div className="weather-widget">
+//           <p>[ Weather Widget Placeholder ]</p>
+//         </div>
+
+//         {/* Quick Actions */}
+//         <div className="section">
+//           <h2 className="section-title">Quick Actions</h2>
+//           <div className="actions-grid">
+//             {quickActions.map((action) => {
+//               const Icon = action.icon;
+//               return (
+//                 <button
+//                   key={action.id}
+//                   onClick={() => onNavigate(action.id)}
+//                   className={`action-card ${action.className}`}
+//                 >
+//                   <Icon className="action-icon" />
+//                   <h3>{action.title}</h3>
+//                   <p>{action.description}</p>
+//                 </button>
+//               );
+//             })}
+//           </div>
+//         </div>
+
+//         {/* Active Crops */}
+//         <div className="section">
+//           <h2 className="section-title">Active Crops</h2>
+//           <div className="crops-grid">
+//             {user.farm.crops.map((crop, index) => (
+//               <div key={index} className="crop-card">
+//                 <div className="crop-icon-wrapper">
+//                   <Crop className="crop-icon" />
+//                 </div>
+//                 <div>
+//                   <h3>{crop}</h3>
+//                   <p>Growing season</p>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default UserHome;

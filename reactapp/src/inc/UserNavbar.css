@@ -1,30 +1,30 @@
-.pimg{
-  width: 100px;
-}
-
-/* .frm{
-  margin: 100px auto;
-  background: #eee;
-  background-image: url(../public/img/wp5698427.webp);
-  border:2px solid  #CCC;
-  padding: 20px;
-} */
-/* 
 .navbar {
-  background-color: #6b21a889; 
-  color: white;
-  padding: 1rem  3rem;
+  background-color: 	#10B981;
+  color: #fff;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.136);
-  flex-wrap: wrap;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-.navbar__logo {
-  font-size: 1.5rem;
+.navbar-logo {
+  font-size: 1.6rem;
   font-weight: bold;
 }
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-welcome {
+  font-size: 1rem;
+}
+ 
 
 .navbar__links {
   display: flex;
@@ -51,7 +51,7 @@
 }
 
 .navbar__logout {
-  background-color: #982bd3ad; 
+  background-color: #10B981; 
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
@@ -61,20 +61,5 @@
   color: white;
 } 
 .navbar__logout:hover {
-  background-color: #b91c1c; 
-} */
-
-/* Responsive navbar */
-@media screen and (max-width: 768px) {
-  .navbar__links {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  .navbar {
-    align-items: flex-start;
-  }
-}
+  background-color: #d4ece4; 
+} 

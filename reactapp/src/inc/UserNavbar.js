@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../App.css"; // Optional: create a specific CSS if needed
+import "./UserNavbar.css"; // Optional: create a specific CSS if needed
 
 function UserNavbar() {
   const navigate = useNavigate();
@@ -24,4 +24,26 @@ function UserNavbar() {
   );
 }
 
+
 export default UserNavbar;
+
+// import React from 'react';
+// import './UserNavbar.css'; // Pure CSS file
+
+// function UserNavbar({ uname, onLogout }) {
+//   return (
+//     <nav className="navbar">
+//       <div className="navbar-logo">Smart Kishan</div>
+//       <div className="navbar-right">
+//         <span className="navbar-welcome">Welcome, {uname}</span>
+//         <button className="navbar-logout" onClick={onLogout}>
+//           Logout
+//         </button>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// export default UserNavbar;
+
+ 
