@@ -1,0 +1,160 @@
+ 
+
+/* Header */
+.market-header {
+  text-align: center;
+  margin-top: 20px;
+  color: #2e3a59;
+}
+
+.market-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+.market-header p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Tabs */
+.market-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.market-tabs button {
+  padding: 10px 20px;
+  background-color: #f0f4f5;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.market-tabs .active-tab {
+  background-color: #d1f7dc;
+  color: #2c7a36;
+}
+
+/* Search & Filter */
+.market-search-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.market-search-filter input {
+  padding: 10px 15px;
+  width: 40%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.filter-btn {
+  padding: 10px 15px;
+  background-color: #e3f2e8;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Product Cards Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 0 30px;
+}
+
+/* Product Card */
+.product-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 15px;
+}
+
+.product-details h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #333;
+}
+
+.vendor {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.location {
+  font-size: 0.85rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+.price {
+  font-weight: bold;
+  color: #1e7e34;
+  font-size: 1.1rem;
+}
+
+.price span {
+  font-weight: normal;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.trend {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.trend.up {
+  color: green;
+}
+
+.trend.down {
+  color: red;
+}
+
+.cart-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 500;
+}
+
+.tag {
+  background-color: #d0f0c0;
+  color: #1c7a1c;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  float: right;
+}

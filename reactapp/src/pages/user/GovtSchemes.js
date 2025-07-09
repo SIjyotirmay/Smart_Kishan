@@ -22,6 +22,8 @@
 
 import { useEffect, useState } from "react";
 import UserNavbar from "../../inc/UserNavbar";
+import "./scheme.css";
+
 
 function SchemeList() {
   const [schemes, setSchemes] = useState([]);

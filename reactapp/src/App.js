@@ -13,6 +13,8 @@ import './App.css';
 import GovtSchemes from "./pages/user/GovtSchemes";
 import CropDiseaseDetection from "./pages/user/CropDiseaseDetection";
 import News from "./pages/user/News"
+import Market from "./pages/user/Market";
+import WeatherWidget from "./pages/user/WeatherWidget"
 
 function App() {
   const PrivateRoute = ({ children, role }) => {
@@ -43,9 +45,10 @@ function App() {
         {/* User Route */}
         <Route path="/userhome" element={<PrivateRoute role="user"><UserHome /></PrivateRoute>} />
         <Route path="/news" element={<PrivateRoute role="user"><News /></PrivateRoute> } />
-
+        <Route path="/market" element={<PrivateRoute role="user"><Market /></PrivateRoute> } />
         <Route path="/govtschemes" element={<PrivateRoute role="user"><GovtSchemes /></PrivateRoute>} />
         <Route path="/cropdisease" element={<PrivateRoute role="user"><CropDiseaseDetection /></PrivateRoute>} />
+        <Route path="/weather" element={<PrivateRoute role="user"><WeatherWidget /></PrivateRoute> } />
 
         {/* Public Route */}
         <Route path="/login" element={<Login />} />

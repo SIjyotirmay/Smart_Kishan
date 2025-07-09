@@ -1,6 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./UserNavbar.css";
 import { FaHome, FaShoppingCart, FaNewspaper } from "react-icons/fa";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLandmark } from '@fortawesome/free-solid-svg-icons';
 
 function UserNavbar() {
   const navigate = useNavigate();
@@ -19,15 +21,27 @@ function UserNavbar() {
       </div>
 
       <div className="navbar-center">
-        <Link to="/userhome" className="nav-link">
+        <NavLink to="/userhome" 
+        className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : ""}`
+          }>
           <FaHome className="nav-icon" /> Home
-        </Link>
-        <Link to="/marketplace" className="nav-link">
-          <FaShoppingCart className="nav-icon" /> Smart Marketplace
-        </Link>
-        <Link to="/news" className="nav-link">
+        </NavLink>
+        <NavLink to="/market" className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : ""}`
+          }>
+          <FaShoppingCart className="nav-icon" /> Market
+        </NavLink>
+        <NavLink to="/govtschemes" className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : ""}`
+          }>
+          <FontAwesomeIcon icon={faLandmark} className="nav-icon" /> Schemes
+        </NavLink>
+        <NavLink to="/news" className={({ isActive }) =>
+            `nav-link ${isActive ? "active" : ""}`
+          }>
           <FaNewspaper className="nav-icon" /> News
-        </Link>
+        </NavLink>
       </div>
 
       <div className="navbar-right">

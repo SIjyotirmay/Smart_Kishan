@@ -1,14 +1,13 @@
 import { NavLink } from "react-router-dom";
+import { FaUserShield } from "react-icons/fa";
 function Sidebar(){
     return(
         <>
           <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       {/* Sidebar - Brand */}
       <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div className="sidebar-brand-icon rotate-n-15">
-          <i className="fas fa-laugh-wink" />
-        </div>
-        <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+         
+        <div className="sidebar-brand-text mx-3"><FaUserShield/> Admin</div>
       </a>
       {/* Divider */}
       <hr className="sidebar-divider my-0" />

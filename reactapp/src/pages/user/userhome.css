@@ -12,12 +12,19 @@
 /* Welcome Card */
 .welcome-card {
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 2rem;
   padding: 2rem;
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 32px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  
 }
 
 .welcome-card::before {
@@ -34,11 +41,69 @@
   opacity: 0.5;
 }
 
-/* Welcome Info */
-.welcome-info {
+ 
+
+.welcome-left {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+/* .user-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 4px solid #a7f3d0; 
+  margin-right: 1rem;
+  object-fit: cover;
+} */
+ 
+ 
+ 
+
+.welcome-text h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.welcome-image {
+  width: 140px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+ 
+
+/* Utility Buttons */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937; /* gray-800 */
+  margin-bottom: 0.3rem;
+}
+
+.welcome-text p {
+  font-size: 0.95rem;
+  color: #6b7280; /* gray-600 */
+}
+
+/* Right side farm image */
+.welcome-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .avatar-info {
@@ -83,7 +148,7 @@
   gap: 0.25rem;
 }
 
-/* Farm Stats */
+
 .farm-stats {
   display: grid;
   gap: 1.5rem;
@@ -126,7 +191,7 @@
   margin-top: 0.25rem;
 }
 
-/* Quick Actions */
+
 .quick-actions {
   margin-top: 2rem;
 }
@@ -181,7 +246,7 @@
   opacity: 0.9;
 }
 
-/* Specific Action Colors */
+
 .bg-blue-500 { background-color: #3b82f6; }
 .bg-blue-600:hover { background-color: #2563eb; }
 
@@ -260,4 +325,97 @@
 .crop-info p {
   font-size: 0.875rem;
   color: #6b7280;
+}
+
+
+.quick-actions {
+  margin: 2rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #1e293b;
+  text-align: center;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Stylish Button Card */
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.8rem;
+  border-radius: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform: rotate(25deg);
+  animation: shine 6s infinite linear;
+}
+
+@keyframes shine {
+  0% { transform: rotate(25deg) translateX(-100%); }
+  100% { transform: rotate(25deg) translateX(100%); }
+}
+
+.action-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+.action-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.action-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.action-description {
+  font-size: 0.95rem;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+/* Background gradient colors */
+.blue {
+  background: linear-gradient(135deg, #3b82f6, #c9c9ec);
+}
+
+.red {
+  background: linear-gradient(135deg, #fd7b03, #ced92dc9);
+}
+
+.green {
+  background: linear-gradient(135deg,#4ade80, #a9d2f6 );
+}
+
+.purple {
+  background: linear-gradient(135deg, #8b5cf6, #dab7eef4);
 }
