@@ -1,5 +1,6 @@
 .pimg{
-  width: 100px;
+  width: 120px;
+  margin: 4px;
 }
 
 /* .frm{
@@ -78,3 +79,6 @@
     align-items: flex-start;
   }
 }
+
+
+ 

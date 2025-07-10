@@ -1,0 +1,81 @@
+/* Layout */
+.dashboard-container {
+  padding: 2rem;
+  background-color: #f8f9fc;
+  min-height: 100vh;
+  margin-left: 60px;
+  margin-right: 32px;
+}
+.flex-column{
+    margin-left: 180px; 
+    width: calc(100% - 180px);
+}
+.dashboard-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #343a40;
+}
+
+/* Grid (Bootstrap mimic) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.col {
+  flex: 1 1 30%;
+  min-width: 250px;
+}
+
+/* Card Base */
+.card {
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  background-color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.card-text.count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+/* Border colors like Bootstrap */
+.border-primary {
+  border-left: 0.25rem solid #007bff;
+}
+
+.border-success {
+  border-left: 0.25rem solid #28a745;
+}
+
+.border-danger {
+  border-left: 0.25rem solid #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .col {
+    flex: 1 1 100%;
+  }
+}
+

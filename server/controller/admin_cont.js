@@ -17,6 +17,17 @@ module.exports={
       res.json({msg:"I am Admin Add"});
 
   } ,
+    async getUserStats(req, res) {
+    try {
+        const total = await User.countDocuments();
+        const active = await User.countDocuments({ status: "active" });
+        const inactive = await User.countDocuments({ status: "inactive" });
+
+        res.json({ total, active, inactive });
+    } catch (err) {
+        res.status(500).json({ error: "Server error" });
+    }
+    },
   async login(req,res){
     var e=req.body.email;
     var p=req.body.pass;

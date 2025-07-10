@@ -2,102 +2,99 @@ import { Link } from "react-router-dom";
 import Footer from "../../inc/Footer";
 import Sidebar from "../../inc/Sidebar";
 import Top from "../../inc/Top";
-import { useState,useEffect } from "react";
-function Listproduct(){
-    let [products,setProducts]=useState([])
+import { useState, useEffect } from "react";
+import "./Listschemes.css";
 
-     async function getdata(){
-        var resp=await fetch("http://localhost:2000/product/sel");
-        var data=await resp.json()
-        console.log(data)
-        setProducts(data)
-     }
+function Listproduct() {
+  const [products, setProducts] = useState([]);
 
-     useEffect(()=>{
-           getdata(); 
-     },[])
+  const getdata = async () => {
+    const resp = await fetch("http://localhost:2000/product/sel");
+    const data = await resp.json();
+    setProducts(data);
+  };
 
-    return(
-        <>
-     <div>
-  {/* Page Wrapper */}
-  <div id="wrapper">
-    {/* Sidebar */}
-      <Sidebar/>
-    {/* End of Sidebar */}
-    {/* Content Wrapper */}
-    <div id="content-wrapper" className="d-flex flex-column">
-      {/* Main Content */}
-      <div id="content">
-        {/* Topbar */}
-          <Top/>
-        {/* End of Topbar */}
-        {/* Begin Page Content */}
-        <div className="container-fluid">
-          {/* Page Heading */}
-          <h1 className="h3 mb-4 text-gray-800">List Product</h1>
-               
-               <table className="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Details</th>
-                        <th>Image</th>
-                        <th>Delete</th>
-                          <th>Edit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map((p)=>
-                    <tr key={p._id}>
-                        <td>{p.pname}</td>
-                        <td>{p.pprice}</td>
-                        <td>{p.pdetails}</td>
-                        <td><img className="pimg" src={"http://localhost:2000/productimg/"+p.pimg} /></td>
-                        <td><button onClick={async ()=>{
+  const deleteProduct = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this product?");
+    if (!confirmDelete) return;
 
-                            var fd=new FormData();
-                            fd.append("id",p._id);
-                              var resp=await fetch("http://localhost:2000/product/del",{
-                                method:'POST',
-                                body:fd
-                              });
-                           var data=await resp.json()
-                            getdata(); 
+    const fd = new FormData();
+    fd.append("id", id);
 
-                        }} className="btn btn-danger">Delete</button></td>
+    const resp = await fetch("http://localhost:2000/product/del", {
+      method: "POST",
+      body: fd,
+    });
 
-              <td><Link to={"/edit/"+p._id} className="btn btn-success">Edit</Link></td>          
+    const data = await resp.json();
+    console.log(data);
+    getdata();
+  };
 
+  useEffect(() => {
+    getdata();
+  }, []);
 
+  return (
+    <div className="layout">
+      <Sidebar />
+      <div className="main-content">
+        <Top />
+        <div className="content-area">
+          <h1 className="page-title">List Products</h1>
 
-                    </tr>
-                    )}
-                </tbody>
-               </table>
-
+          <div className="table-container">
+            <table className="custom-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Details</th>
+                  <th>Image</th>
+                  <th>Delete</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.map((p) => (
+                  <tr key={p._id}>
+                    <td>{p.pname}</td>
+                    <td>{p.pprice}</td>
+                    <td>{p.pdetails}</td>
+                    <td>
+                      {p.pimg ? (
+                        <img
+                          className="pimg"
+                          src={`http://localhost:2000/productimg/${p.pimg}`}
+                          alt="Product"
+                        />
+                      ) : (
+                        "No Image"
+                      )}
+                    </td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => deleteProduct(p._id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                    <td>
+                      <Link to={`/edit/${p._id}`} className="btn btn-success">
+                        Edit
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-        {/* /.container-fluid */}
+        <Footer />
       </div>
-      {/* End of Main Content */}
-      {/* Footer */}
-     <Footer/>
-      {/* End of Footer */}
     </div>
-    {/* End of Content Wrapper */}
-  </div>
-  {/* End of Page Wrapper */}
-  {/* Scroll to Top Button*/}
-  <a className="scroll-to-top rounded" href="#page-top">
-    <i className="fas fa-angle-up" />
-  </a>
-  {/* Logout Modal*/}
-  
-</div>
-
-        </>
-    )
+  );
 }
 
 export default Listproduct;

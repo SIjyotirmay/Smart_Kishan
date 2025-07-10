@@ -1,10 +1,14 @@
-import { useState } from "react";
+
+import React, { useState } from "react";
 import UserNavbar from "../../inc/UserNavbar";
+import "./cropdetection.css";
 
 function CropDiseaseDetection() {
   const [preview, setPreview] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [selectedFileName, setSelectedFileName] = useState("");
+  const [imageSelected, setImageSelected] = useState(false);
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
@@ -13,6 +17,8 @@ function CropDiseaseDetection() {
     setPreview(URL.createObjectURL(file));
     setResult(null);
     setLoading(true);
+    setSelectedFileName(file.name);
+    setImageSelected(true);
 
     const formData = new FormData();
     formData.append("image", file);
@@ -35,34 +41,41 @@ function CropDiseaseDetection() {
   return (
     <div>
       <UserNavbar />
-      <div className="p-6">
-        <h2 className="text-2xl font-bold text-red-700">🩺 Crop Disease Detection</h2>
-        <p className="mt-2 text-gray-800">Upload a clear image of your crop leaf to detect diseases.</p>
+      <div className="crop-wrapper">
+        <h2 className="crop-title">🌿🔍 Crop Disease Detection</h2>
+        <p className="crop-subtitle">
+          Upload a clear image of your crop leaf. Our AI model will identify if the plant is healthy or diseased.
+        </p>
 
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="mt-4 mb-2"
-        />
-
+        <div className="upload-section">
+          <label htmlFor="file-upload" className="upload-label">
+            {imageSelected ? "📸 Image Selected" : "📁 Select Image"}
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            className="file-input"
+          />
+          {selectedFileName && (
+            <span className="file-name">({selectedFileName})</span>
+          )}
+        </div>
+        <div className="finalresult">
         {preview && (
-          <div className="mt-4">
+          <div>
             <p className="font-medium">Image Preview:</p>
-            <img
-              src={preview}
-              alt="Preview"
-              className="w-60 h-auto border border-green-600 rounded shadow-md"
-            />
+            <img src={preview} alt="Preview" className="image-preview" />
           </div>
         )}
 
-        {loading && <p className="mt-4 text-blue-600">🔍 Analyzing image...</p>}
+        {loading && <p className="loading-text">🔍 Analyzing image...</p>}
 
         {result && (
-          <div className="mt-4 p-4 bg-green-100 border-l-4 border-green-600 rounded">
+          <div className="result-box">
             {result.error ? (
-              <p className="text-red-600 font-semibold">{result.error}</p>
+              <p className="result-error">{result.error}</p>
             ) : (
               <>
                 <p><strong>🌿 Disease:</strong> {result.disease}</p>
@@ -71,6 +84,7 @@ function CropDiseaseDetection() {
             )}
           </div>
         )}
+      </div>
       </div>
     </div>
   );

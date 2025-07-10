@@ -38,6 +38,7 @@
 
 
 // app.listen(2000)
+
 const exp = require("express");
 const app = exp();
 
@@ -49,9 +50,10 @@ app.use("/uploads", exp.static("uploads")); // For serving uploaded files
 
 app.use(exp.urlencoded({ extended: true }));
 app.use(exp.json());
-
 const expressFileupload = require("express-fileupload");
 app.use(expressFileupload());
+
+ 
 
 
 const mongoose = require("mongoose");
@@ -67,6 +69,8 @@ app.use("/product", require("./routes/product_r"));
 app.use("/admin", require("./routes/admin"));
 app.use("/user", require("./routes/user"));
 app.use("/scheme", require("./routes/scheme"));
+ 
+
 
 // Start server
 app.listen(2000, () => {

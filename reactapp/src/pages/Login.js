@@ -84,6 +84,7 @@ function Login() {
     });
 
     const data = await resp.json();
+    console.log("received data login response:", data);
 
     if (data.msg === "Invalid login") {
       setIserr(true);
@@ -95,6 +96,7 @@ function Login() {
       } else {
         localStorage.setItem("uname", data.name);
         localStorage.setItem("uid", data.id);
+        console.log("Stored UID:", data.id);
         navigate("/userhome"); // ✅ use this
       }
     }
@@ -126,8 +128,8 @@ function Login() {
             <label className="label"><FaUserShield className="icon"/> Select Role</label>
             <div className="role-options">
               <button
-                className={`role-btn ${role === "farmer" ? "active" : ""}`}
-                onClick={() => setRole("farmer")}
+                className={`role-btn ${role === "user" ? "active" : ""}`}
+                onClick={() => setRole("user")}
               >
                 <FaUser className="icon" />
                 Farmer

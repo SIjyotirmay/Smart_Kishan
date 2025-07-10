@@ -2,6 +2,7 @@
 node_modules/
 reactapp/node_modules/
 server/node_modules/
+flaskapp/venv/
 
 # environment variables
 .env

@@ -20,10 +20,61 @@
 
 // export default GovtSchemes;
 
+// import { useEffect, useState } from "react";
+// import UserNavbar from "../../inc/UserNavbar";
+// import "./scheme.css";
+
+
+// function SchemeList() {
+//   const [schemes, setSchemes] = useState([]);
+
+//   useEffect(() => {
+//     fetch("http://localhost:2000/scheme/all")
+//       .then((res) => res.json())
+//       .then((data) => setSchemes(data));
+//   }, []);
+
+//   return (
+//     <div >
+//        <UserNavbar />
+//       <h3>Available Schemes</h3>
+//       {schemes.map((s, idx) => (
+//         <div className="card mb-2" key={idx}>
+//           <div className="card-body">
+//             <h5>{s.title}</h5>
+//             <p>{s.description}</p>
+//             <td>
+//                         {s.image ? (
+//                           <img
+//                             className="pimg"
+//                             src={`http://localhost:2000/uploads/${s.image}`}
+//                             alt="scheme"
+//                             width="100"
+//                           />
+//                         ) : (
+//                           "No image"
+//                         )}
+//                       </td>
+//                       <td>
+//                         {s.applyLink ? (
+//                           <a href={s.applyLink} target="_blank" rel="noopener noreferrer">
+//                             Apply Now
+//                           </a>
+//                         ) : (
+//                           "No Link"
+//                         )}
+//               </td>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default SchemeList;
 import { useEffect, useState } from "react";
 import UserNavbar from "../../inc/UserNavbar";
 import "./scheme.css";
-
 
 function SchemeList() {
   const [schemes, setSchemes] = useState([]);
@@ -36,40 +87,48 @@ function SchemeList() {
 
   return (
     <div >
-       <UserNavbar />
-      <h3>Available Schemes</h3>
-      {schemes.map((s, idx) => (
-        <div className="card mb-2" key={idx}>
-          <div className="card-body">
-            <h5>{s.title}</h5>
-            <p>{s.description}</p>
-            <td>
-                        {s.image ? (
-                          <img
-                            className="pimg"
-                            src={`http://localhost:2000/uploads/${s.image}`}
-                            alt="scheme"
-                            width="100"
-                          />
-                        ) : (
-                          "No image"
-                        )}
-                      </td>
-                      <td>
-                        {s.applyLink ? (
-                          <a href={s.applyLink} target="_blank" rel="noopener noreferrer">
-                            Apply Now
-                          </a>
-                        ) : (
-                          "No Link"
-                        )}
-              </td>
+      <UserNavbar />
+      <div className="scheme-container">
+      <div className="scheme-header">
+        <h3 className="scheme-title">Available Schemes</h3>
+      </div>
+
+      <div className="scheme-grid">
+        {schemes.map((s, idx) => (
+          <div className="scheme-card" key={idx}>
+            {s.image ? (
+              <img
+                className="scheme-image"
+                src={`http://localhost:2000/uploads/${s.image}`}
+                alt={s.title}
+              />
+            ) : (
+              <p className="no-image">No Image</p>
+            )}
+            <div className="scheme-card-content">
+              <h5 className="scheme-card-title">{s.title}</h5>
+              <p className="scheme-card-desc">{s.description}</p>
+              <div className="scheme-card-footer">
+                {s.applyLink ? (
+                  <a
+                    className="scheme-apply-link"
+                    href={s.applyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Apply Now →
+                  </a>
+                ) : (
+                  <p className="no-link">No Link</p>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      </div>
     </div>
   );
 }
 
 export default SchemeList;
-

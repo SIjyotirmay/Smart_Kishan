@@ -105,7 +105,7 @@ function News() {
       try {
         const apiKey = 'd8d353717712431cb00eb171b6b42020';
         const response = await axios.get(
-          `https://newsapi.org/v2/everything?q=PM-Kisan+OR+weather&apiKey=${apiKey}`
+          `https://newsapi.org/v2/everything?q=agriculture+PM-Kisan+OR+weather&apiKey=${apiKey}`
         );
         if (isMounted) {
           setArticles(response.data.articles || []);
